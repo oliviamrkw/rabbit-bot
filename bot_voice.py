@@ -3,22 +3,6 @@ import asyncio
 import random
 from gtts import gTTS
 
-msgs_list = [
-    'rabbit1.png',
-    'rabbit2.png',
-    'rabbit3.png',
-    'rabbit4.png',
-    'rabbit5.png',
-    'rabbit6.png',
-    'rabbit7.png',
-    'rabbit8.png',
-    'rabbit9.png',
-    'rabbit10.png',
-    #'https://tenor.com/view/coelhocaindofofoengracadocuticutiuwu-gif-18255501',
-    #'https://tenor.com/view/soobtime-bunny-stare-staring-cute-gif-18914755',
-    #'https://tenor.com/view/gina101-gina101creative-bunny-rabbit-cute-gif-20125194',
-    ]
-
 tts_list = [
     "i love rabbits",
     "i love hares",
@@ -30,13 +14,11 @@ intents.message_content = True  # This intent is needed to read message content
 
 client = discord.Client(intents=intents)
 
-# Replace with your bot's token
 TOKEN = 'YOUR TOKEN' 
    
 #FRIEND_ID = 511961079086055435
 #CHANNEL_ID = 905143091504226354
-VOICE_CHANNEL_ID = 521340743667810304
-TTS_MESSAGE = random.choice(tts_list)
+VOICE_CHANNEL_ID = 905141459727048837
 
 @client.event
 async def on_ready():
@@ -50,7 +32,8 @@ async def on_ready():
 
     if vc.is_connected():
         # Choose a random TTS message
-        TTS_MESSAGE = random.choice(tts_list)
+        TTS_MESSAGE = "your message"
+        #random.choice(tts_list)
         
         # Generate TTS audio
         tts = gTTS(TTS_MESSAGE)
@@ -64,7 +47,7 @@ async def on_ready():
             await asyncio.sleep(1)
         
         # Disconnect from the voice channel
-        await vc.disconnect()
+        #await vc.disconnect()
     else:
         print("Failed to connect to the voice channel.")
 
